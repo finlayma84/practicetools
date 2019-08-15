@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Six Magic Tempos</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: white;
+            
+            }
+        input:focus{
+            outline: none;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url("https://images.unsplash.com/photo-1453906971074-ce568cccbc63?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60");
+            background-size: cover;
+            z-index: -1;
+        }
+        header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            flex: 1 10vh;
+            background:rgba(0,0,0,0.3);
+            width: 100vw;
+
+        }
+        main{
+            background:rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            flex: 4 80vh;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+        }
+        footer{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:rgba(0,0,0,0.3);
+            width: 100vw;
+            flex: 1 10vh;
+        }
+        input{
+            margin: 20px;
+            }
+        #submit{
+            display: block;
+            padding: 10px 30px;
+            margin: 30px auto;
+            background: black;
+            color: white;
+            font-weight: bold;
+            font-size: 30px;
+        }
+        #tempo{
+            width: 30vw;
+            height: 5vh;
+            border-radius: 5px;
+            border: 5px black solid;
+            color: black;
+        }
+        #answer{
+            display: block;
+            color: yellow;
+            font-size: 50px;
+            font-weight: 900
+        }
+ label{
+     font-size: 50px;
+     color: white;
+    display: block;
+ }
+    
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>Six Magic Tempos</h1>
+    </header>
+    <main>
+            <form action="">
+                 <label for="tempo">Enter Goal Tempo:</label>
+                    <input type="text" name="tempo" id="tempo">
+                    <button  id="submit" value="Find practice tempos">Find Practice Tempos</button>
+            </form>
+
+                <div id="answer"></div>
+
+    </main>
+ <footer>
+     Just another crappy app!
+ </footer>
+
+
+    <script>
+            function createSpreadsheet(tempo){
+                var sixTempos = ''
+                for (let i=.50; i<=.9; i+=.10){
+                sixTempos += Math.round((tempo * i)) + " "
+                } return sixTempos + tempo
+        }
+        document.querySelector("#submit").addEventListener("click",(e)=>{
+            e.preventDefault();
+            document.querySelector("#answer").textContent = createSpreadsheet(parseInt(document.querySelector("#tempo").value))
+        })
+        </script>  
+
+</body>
+</html>
