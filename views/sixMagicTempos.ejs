@@ -16,7 +16,8 @@
         input:focus{
             outline: none;
         }
-        body{
+        html body{
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -119,7 +120,7 @@
         <div id="content">
                 <form action="">
                         <label for="tempo">Enter Goal Tempo:</label>
-                           <input type="text" name="tempo" id="tempo">
+                           <input type="number" name="tempo" id="tempo">
                            <button  id="submit" value="Find practice tempos">Find Practice Tempos</button>
                    </form>
        
