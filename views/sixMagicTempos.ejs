@@ -143,13 +143,22 @@
             function createSpreadsheet(tempo){
                 var sixTempos = ''
                 for (let i=.50; i<=.9; i+=.10){
-                sixTempos += Math.round((tempo * i)) + " "
-                } return sixTempos + tempo
-        }
-        document.querySelector("#submit").addEventListener("click",(e)=>{
-            e.preventDefault();
-            document.querySelector("#answer").textContent = createSpreadsheet(parseInt(document.querySelector("#tempo").value))
-        })
+                    sixTempos += Math.round((tempo * i)) + " "
+                    }   
+                 return sixTempos + tempo
+                }
+                    document.querySelector("#submit").addEventListener("click",(e)=>{
+                    e.preventDefault();
+                    document.querySelector("#answer").textContent = createSpreadsheet(parseInt(document.querySelector("#tempo").value))
+                     })
+
+                     document.querySelector("#submit").addEventListener("keydown",(e)=>{
+                    e.preventDefault();
+                    if (e == 13){
+                        document.querySelector("#answer").textContent = createSpreadsheet(parseInt(document.querySelector("#tempo").value))
+
+                    }
+                     })
         </script>  
 
 </body>
