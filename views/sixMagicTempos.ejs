@@ -30,7 +30,7 @@
             align-items: center;
             margin: 0;
             flex: 1 10vh;
-            background:rgba(0,0,0,0.3);
+            background:rgba(0,0,0,0.8);
             width: 100vw;
 
         }
@@ -47,28 +47,33 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background:rgba(0,0,0,0.3);
+            background:rgba(0,0,0,0.8);
             width: 100vw;
             flex: 1 10vh;
+            font-size: 25px;
+            font-weight: 600;
         }
         input{
-            margin: 20px;
+            margin: 20px 0;
             }
         #submit{
             display: block;
             padding: 10px 30px;
-            margin: 30px auto;
+            margin-top: 30px;
             background: black;
             color: white;
             font-weight: bold;
             font-size: 30px;
+            width: 50vw;
+            text-align: center
         }
         #tempo{
-            width: 30vw;
-            height: 5vh;
+            width: 50vw;
+            height: 6vh;
             border-radius: 5px;
             border: 5px black solid;
             color: black;
+            text-align: center;
         }
         #answer{
             display: block;
@@ -78,9 +83,30 @@
         }
  label{
      font-size: 50px;
+     text-align: center;
      color: white;
     display: block;
  }
+ #content{
+     display: flex;
+     justify-content: center;
+     
+ }
+ @media (max-width: 600px){
+     #tempo{
+         width: 80vw;
+     }
+     #submit{
+         font-size: 20px;
+         width: 80vw;
+     }
+ }
+ @media (max-width: 480px){
+     #content{
+         padding: 10vh;
+     }
+ }
+
     
     </style>
 
@@ -90,13 +116,16 @@
         <h1>Six Magic Tempos</h1>
     </header>
     <main>
-            <form action="">
-                 <label for="tempo">Enter Goal Tempo:</label>
-                    <input type="text" name="tempo" id="tempo">
-                    <button  id="submit" value="Find practice tempos">Find Practice Tempos</button>
-            </form>
+        <div id="content">
+                <form action="">
+                        <label for="tempo">Enter Goal Tempo:</label>
+                           <input type="text" name="tempo" id="tempo">
+                           <button  id="submit" value="Find practice tempos">Find Practice Tempos</button>
+                   </form>
+       
+        <div id="answer"></div>
+        </div>
 
-                <div id="answer"></div>
 
     </main>
  <footer>
