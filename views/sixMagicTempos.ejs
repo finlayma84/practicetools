@@ -68,6 +68,14 @@
             width: 50vw;
             text-align: center
         }
+        #reps{
+            width: 50vw;
+            height: 6vh;
+            border-radius: 5px;
+            border: 5px black solid;
+            color: black;
+            text-align: center;  
+        }
         #tempo{
             width: 50vw;
             height: 6vh;
@@ -83,7 +91,7 @@
             font-weight: 900
         }
  label{
-     font-size: 50px;
+     font-size: 30px;
      text-align: center;
      color: white;
     display: block;
@@ -98,10 +106,10 @@
      
  }
  @media (max-width: 600px){
-     #tempo{
+     #tempo, #reps{
          width: 80vw;
      }
-     #submit{
+     #submit {
          font-size: 20px;
          width: 80vw;
      }
@@ -126,6 +134,8 @@
                 <form action="">
                         <label for="tempo">Enter Goal Tempo:</label>
                            <input type="number" name="tempo" id="tempo">
+                        <label for="reps">Enter Number of Repetitions:</label>
+                           <input type="number" name="reps" id="reps">                        
                            <button  id="submit" value="Find practice tempos">Find Practice Tempos</button>
                    </form>
        
@@ -140,25 +150,44 @@
 
 
     <script>
-            function createSpreadsheet(tempo){
-                var sixTempos = ''
-                for (let i=.50; i<=.9; i+=.10){
-                    sixTempos += Math.round((tempo * i)) + " "
+            function findTempos(tempo){
+                var sixTempos = []
+                for (let i=.50; i<=1; i+=.10){
+                    sixTempos.push(Math.round((tempo * i)))
                     }   
-                 return sixTempos + tempo
+                 return sixTempos
+
                 }
+                var i=0;
+                var counter = 0;
+
+
                     document.querySelector("#submit").addEventListener("click",(e)=>{
                     e.preventDefault();
-                    document.querySelector("#answer").textContent = createSpreadsheet(parseInt(document.querySelector("#tempo").value))
-                     })
+                    var tempo = parseInt(document.querySelector("#tempo").value);
+                    var answer = document.querySelector("#answer")
+                    var reps = parseInt(document.querySelector("#reps").value)
+                    var tempos = findTempos(tempo);
 
-                     document.querySelector("#submit").addEventListener("keydown",(e)=>{
-                    e.preventDefault();
-                    if (e == 13){
-                        document.querySelector("#answer").textContent = createSpreadsheet(parseInt(document.querySelector("#tempo").value))
-
+                    answer.innerHTML= "<p> Tempo No. " + (i+1) + ": " + tempos[i] +" bpm</p>"
+                                         +"<p> Repetition: " + " " + (counter+1)  + "</p>"
+                        
+                    counter++
+                    if(counter === reps){
+                        i++
+                        counter=0
                     }
+                    
+                    if (i===tempos.length){
+                        i=0
+                    }
+                    
+
+
                      })
+
+
+                     //add counter
         </script>  
 
 </body>
