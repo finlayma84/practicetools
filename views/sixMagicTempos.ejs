@@ -62,6 +62,7 @@
             display: block;
             padding: 10px 30px;
             margin-top: 30px;
+            margin-bottom: 30px;
             background: black;
             color: white;
             font-weight: bold;
@@ -175,7 +176,7 @@
                     var reps = parseInt(document.querySelector("#reps").value)
                     var tempos = findTempos(tempo);
 
-                    answer.innerHTML= "<p> Tempo No. " + (i+1) + ": " + tempos[i] +" bpm </p>"+
+                    answer.innerHTML= "<p> Tempo No. " + (i+1) + ": <strong>" + tempos[i] +" bpm </strong></p>"+
                                         "<p>("+percent+"% of Goal Tempo)</p>"
                                          +"<p> Repetition: " + " " + (counter+1)  + "</p>"
                         
